@@ -12,6 +12,8 @@ Part 1
 
 using System.Numerics;
 
+Console.WriteLine ("=== Part 1: Road Trip ===");
+
 Console.Write("How many miles did you travel? ");
 int roundTrip = Convert.ToInt32(Console.ReadLine());
 
@@ -25,12 +27,17 @@ double gallonsNeeded = roundTrip / milePerGallon;
 
 double fuelcost = gallonsNeeded * pricePerGallon;
 
+
 Console.WriteLine ("Gallons needed: " + gallonsNeeded.ToString("F2"));
 Console.WriteLine ("Fuel cost: " + fuelcost.ToString("C"));
+
+
 
 /*
 Part 2
 */
+
+Console.WriteLine ("=== Part 2: Pizza Party ===");
 
 Console.Write ("How many people are going? ");
 int attandance = Convert.ToInt32(Console.ReadLine());
@@ -49,15 +56,18 @@ double slicesPer = totalslices / attandance;
 
 double pizzatotal = pizzaboxes * pizzacost;
 
+
 Console.WriteLine ("Total slices: " + totalslices);
 Console.WriteLine ("Slices Per Person: " + slicesPer.ToString("F1"));
-Console.WriteLine ("Pizza Cost:" + pizzatotal.ToString("F2"));
+Console.WriteLine ("Pizza Cost:" + pizzatotal.ToString("C"));
 
 
 
 /*
 Part 3
 */
+
+Console.WriteLine ("=== Part 3: Paycheck ===");
 
 Console.Write ("How many hours have you worked? ");
 int hoursWorked = Convert.ToInt32(Console.ReadLine()); 
@@ -73,6 +83,23 @@ decimal withheld = grosspay * taxrate;
 
 decimal takehome = grosspay - withheld;
 
-Console.WriteLine ("Gross Pay: " + grosspay.ToString("F2"));
-Console.WriteLine ("Tax withheld: " + withheld.ToString("F2"));
-Console.WriteLine ("Take Home Pay: " + takehome.ToString("F2"));
+
+Console.WriteLine ("Gross Pay: " + grosspay.ToString("C"));
+Console.WriteLine ("Tax withheld: " + withheld.ToString("C"));
+Console.WriteLine ("Take Home Pay: " + takehome.ToString("C"));
+
+/*
+Part 4
+*/
+
+double tripTotal = fuelcost + pizzatotal;
+decimal costper = Convert.ToDecimal(tripTotal / attandance);
+decimal takehomeper = takehome / hoursWorked;
+decimal hoursNeeded = costper / takehomeper;
+
+Console.WriteLine ("=== Part 4: The Whole Trip ===");
+
+Console.WriteLine ("Trip Total: " + tripTotal.ToString("C"));
+Console.WriteLine ("Cost Per Person: " + costper.ToString("C"));
+Console.WriteLine ("Take home pay per hour: " + takehomeper.ToString("C"));
+Console.WriteLine ("Hours you must work to cover your share: " + hoursNeeded.ToString("C"));
