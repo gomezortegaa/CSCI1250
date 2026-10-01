@@ -1,10 +1,12 @@
 ﻿Console.Write("What is your full name?");
+
 string? fullName = Console.ReadLine();
 fullName = fullName.Trim();
 
 Random rng = new Random();
 
 //Part 1: The Name
+
 
 int spacePosition = fullName.IndexOf(" ");
 string firstName = fullName.Substring(0, spacePosition);
