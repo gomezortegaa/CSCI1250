@@ -38,3 +38,39 @@ Console.WriteLine("StudentID: " + studentID);
 Console.WriteLine("Locker: " + lockerNumber);
 
 //Part 3: The Walk
+
+double dormx, dormy, classx, classy, fps;
+
+Console.WriteLine ("What's the X distance from your dorm?");
+dormx = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine ("What's the Y distance from your dorm?");
+dormy = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine ("What's the X distance to your classroom?");
+classx = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine ("What's the Y distance to your classroom?");
+classy = Convert.ToDouble(Console.ReadLine());
+
+
+
+double distance = Math.Sqrt(Math.Pow(dormx - classx,2) + Math.Pow (dormy - classy,2));
+
+Console.WriteLine ("Distance: " + distance.ToString("F1"));
+
+//The Time
+
+int fulltime, mins, secs;
+
+Console.WriteLine ("What's your walking speed in feet per second?");
+fps = Convert.ToDouble(Console.ReadLine());
+
+fulltime = Convert.ToInt32(distance / fps);
+
+mins = fulltime / 60;
+
+secs = fulltime % 60; 
+
+Console.WriteLine("Walk Time: " + mins + (" Min " + secs + " Sec"));
+
