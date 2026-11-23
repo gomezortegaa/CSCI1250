@@ -10,6 +10,7 @@
 
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 
 const string PLAYERS_FILE = "players.txt";
 const string POINTS_FILE = "points.txt";
@@ -40,6 +41,35 @@ Console.WriteLine("Leader: " + players[leader] + " with " + points[leader]);
 Console.WriteLine("Season total: " + seasontotal);
 
 //Part 2: Game Night
+
+int bestScore = 0;
+string winner = "";
+
+for(int i = 0; i < players.Length; i++)
+{
+    Console.Write("Points tonight for " + players[i] + ": ");
+    int tonight = Convert.ToInt32(Console.ReadLine());
+
+    while(tonight < 0 || tonight > 20)
+    {
+        Console.WriteLine("Points must be from 0 to 20.");
+        tonight = Convert.ToInt32(Console.ReadLine());
+    }
+
+    if(tonight > bestScore)
+    {
+        bestScore = tonight;
+        winner = players[i];
+    }
+
+    int season = Convert.ToInt32(points[i]) + tonight;
+    points[i] = season.ToString();
+}
+
+Console.WriteLine("Tonight's winner: " + winner + " with " + bestScore);
+
+
+
 
 
 
